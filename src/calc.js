@@ -31,7 +31,9 @@ function calc() {
         if (restDays.value == '') {
             totalValue.innerHTML = 0;
         } else {
-            animate(total);
+            let a = total;
+            let ans = a * this.options[this.selectedIndex].value;
+            animate(ans);
             // totalValue.innerHTML = total;
         }
     });
@@ -44,7 +46,9 @@ function calc() {
         if (persons.value == '') {
             totalValue.innerHTML = 0;
         } else {
-            animate(total);
+            let a = total;
+            let ans = a * place.options[place.selectedIndex].value;
+            animate(ans);
             // totalValue.innerHTML = total;
         }
     });
@@ -53,7 +57,7 @@ function calc() {
             totalValue.innerHTML = 0;
         } else {
             let a = total;
-            let ans = a * this.options[this.selectedIndex].value;
+            let ans = a * place.options[place.selectedIndex].value;
             animate(ans);
             // totalValue.innerHTML = a * this.options[this.selectedIndex].value;
         }

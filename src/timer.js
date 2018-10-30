@@ -1,6 +1,6 @@
 function timers() {
     //timer
-    let deadline = '2019-10-30 19:00:00';
+    let deadline = '2018-10-31 0:00:00';
 
     function getTimeRemaining(endtime) {
         let t = Date.parse(endtime) - Date.parse(new Date()),
