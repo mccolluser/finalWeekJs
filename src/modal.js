@@ -77,6 +77,9 @@ function modal() {
         overlay.style.display = 'none';
         more.classList.remove('more-splash');
         document.body.style.overflow = '';
+        document.querySelectorAll('.status').forEach(function(item){
+            item.style.display = 'none';
+        })
     });
 
 

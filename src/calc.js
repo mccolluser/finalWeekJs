@@ -1,7 +1,8 @@
 function calc() {
+    let timer;
     function animate(total) {
         let i = 0;
-        let timer = setInterval(function () {
+        timer = setInterval(function () {
             i += 300;
             if (i < total) {
                 totalValue.innerHTML = i;
@@ -26,6 +27,8 @@ function calc() {
         if (/\D/.test(this.value)) {
             this.value = '';
         }
+        clearInterval(timer);
+        totalValue.innerHTML = 0;
         personsSum = +this.value;
         if (personsSum == 0 || daysSum == 0){
             total = 0;
@@ -46,6 +49,8 @@ function calc() {
         if (/\D/.test(this.value)) {
             this.value = '';
         }
+        clearInterval(timer);
+        totalValue.innerHTML = 0;
         daysSum = +this.value;
         if (personsSum == 0 || daysSum == 0){
             total = 0;

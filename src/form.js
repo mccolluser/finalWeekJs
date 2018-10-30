@@ -8,12 +8,12 @@ function forms() {
     let form = document.querySelector('.main-form'),
         input = form.getElementsByTagName('input'),
         statusMessage = document.createElement('div');
-    statusMessage.classList.add('status');
+        statusMessage.classList.add('status');
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
         form.appendChild(statusMessage);
-
+        statusMessage.style.display = 'block';
         let formData = new FormData(form);
 
         function postData(data) {

@@ -8,18 +8,27 @@ function anchors(){
             if (anchors[anchors.length - 1] == event.target) {
                 coordContextY -= 90;
             }
-            let scrolling = setInterval(() => {
-                let scrollingBy = 10;
+            let scrollingBy = Math.trunc(Math.abs(coordContextY - document.documentElement.scrollTop) / 50);
+            
+            if (coordContextY - document.documentElement.scrollTop < 0){
+                scrollingBy *= -1;
+            }
 
-                if (document.documentElement.scrollTop < coordContextY) {
-                    // то скроллим на к-во пикселей, которое соответствует одному такту
-                    window.scrollBy(0, scrollingBy);
+            let scrolling = setInterval(() => {
+                if (scrollingBy < 0){
+                    if (document.documentElement.scrollTop > coordContextY) {
+                        window.scrollBy(0, scrollingBy);
+                    } else {
+                        window.scrollTo(0, coordContextY);
+                        clearInterval(scrolling);
+                    }
                 } else {
-                    // иначе добираемся до элемента и выходим из интервала
-                    window.scrollTo(0, coordContextY);
-                    // window.scrollBy(0, scrollingBy);
-                    clearInterval(scrolling);
-                    return;
+                    if (document.documentElement.scrollTop < coordContextY) {
+                        window.scrollBy(0, scrollingBy);
+                    } else {
+                        window.scrollTo(0, coordContextY);
+                        clearInterval(scrolling);
+                    }
                 }
             }, 10);
 
