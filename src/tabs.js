@@ -32,5 +32,17 @@ function tabs() {
             }
         }
     });
+    let overlay = document.querySelector('.overlay');
+
+    let learnMore = document.querySelectorAll('.description-btn');
+    learnMore.forEach(function (item) {
+        item.addEventListener('click', event => {
+            overlay.style.display = 'block';
+            overlay.classList.add('blur-anim');
+            document.body.style.overflow = 'hidden';
+
+        });
+    });
+
 }
 module.exports = tabs;

@@ -2,23 +2,25 @@ window.addEventListener("DOMContentLoaded", function () {
     'use strict';
 
     let calc = require("./calc.js"),
-        form = require("./form.js"),
-        modal = require("./modal.js"),
         slider = require("./slider.js"),
+        timer = require("./timer.js"),
         tabs = require("./tabs.js"),
-        timer = require("./timer.js");
+        modal = require("./modal.js"),
+        form = require("./form.js"),
+        anchor = require("./anchor.js");
+
+    timer();
+    slider();
     calc();
+    tabs();
     form();
     modal();
-    slider();
-    tabs();
-    timer();
+    anchor();
 
 
 
 
 
 
-    
 
 });

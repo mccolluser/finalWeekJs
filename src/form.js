@@ -1,11 +1,10 @@
-function form() {
+function forms() {
     
     let message = {
         loading: 'Загрузка...',
         success: 'Спасибо! Скоро мы с вами свяжемся!!!',
         failure: 'Что-то пошло не так'
     };
-    
     let form = document.querySelector('.main-form'),
         input = form.getElementsByTagName('input'),
         statusMessage = document.createElement('div');
@@ -130,4 +129,4 @@ function form() {
 
     });
 }
-module.exports = form;
+module.exports = forms;

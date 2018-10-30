@@ -42,15 +42,19 @@ function slider() {
         }
     });
 
-    function animate(total) {
-        let i = 0;
-        setInterval(function () {
-            if (i++ < total) {
-                totalValue.innerHTML = i;
-            }
+    // function animate(total){
+    //     let i = 0;
+    //     let timer = setInterval(function(){
+    //         i += 100;
+    //         if (i < total){
+    //             totalValue.innerHTML = i;
+    //         } else {
+    //             totalValue.innerHTML = total;
+    //             clearInterval(timer);
+    //             return;
+    //         }
 
-
-        }, 0.1);
-    }
+    //     },0.1);
+    // }
 }
 module.exports = slider;

@@ -1,13 +1,17 @@
-function calc(){
-    function animate(total){
+function calc() {
+    function animate(total) {
         let i = 0;
-        setInterval(function(){
-            if (i++ < total){
+        let timer = setInterval(function () {
+            i += 300;
+            if (i < total) {
                 totalValue.innerHTML = i;
+            } else {
+                totalValue.innerHTML = total;
+                clearInterval(timer);
+                return;
             }
 
-
-        },0.1);
+        }, 0.1);
     }
     //Калькулятор
     let persons = document.querySelectorAll('.counter-block-input')[0],
@@ -54,5 +58,6 @@ function calc(){
             // totalValue.innerHTML = a * this.options[this.selectedIndex].value;
         }
     });
+
 }
 module.exports = calc;

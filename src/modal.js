@@ -1,35 +1,8 @@
-function modal(){
-    let anchors = document.querySelectorAll('a[href*="#"]');
-
-    anchors.forEach(item => {
-        item.addEventListener('click', event => {
-            event.preventDefault();
-            let coordContextY = document.querySelector(item.hash).offsetTop;
-
-            let scrolling = setInterval(() => {
-                let scrollingBy = 40;
-
-                if (document.documentElement.scrollTop < coordContextY) {
-                    // то скроллим на к-во пикселей, которое соответствует одному такту
-                    window.scrollBy(0, scrollingBy);
-                } else {
-                    // иначе добираемся до элемента и выходим из интервала
-                    window.scrollTo(0, coordContextY);
-                    clearInterval(scrolling);
-                }
-            }, 10);
-
-
-        });
-    });
-
-
+function modal() {
     let more = document.querySelector('.more'),
         overlay = document.querySelector('.overlay'),
         popup = document.querySelector('.popup'),
         close = document.querySelector('.popup-close');
-
-
 
     // Определение браузера пользователя
     let isMobile = {
@@ -77,14 +50,17 @@ function modal(){
         // Анимация на JS
         more.addEventListener('click', () => {
             overlay.style.left = 0;
+            overlay.style.top = 0;
+
             document.body.style.overflow = 'hidden';
             overlay.style.display = 'block';
             let speed = 0;
             popup.style.left = 0 + "px";
+            let stopAnimateWidth = Math.trunc(document.documentElement.clientWidth / 2);
             let timer = setInterval(() => {
                 speed += 20;
                 popup.style.left = speed + "px";
-                if (popup.offsetLeft == 700) {
+                if (popup.offsetLeft > stopAnimateWidth) {
                     clearInterval(timer);
                 }
             }, 20);
@@ -102,6 +78,7 @@ function modal(){
         more.classList.remove('more-splash');
         document.body.style.overflow = '';
     });
+
 
 }
 module.exports = modal;
