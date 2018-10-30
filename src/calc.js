@@ -27,12 +27,17 @@ function calc() {
             this.value = '';
         }
         personsSum = +this.value;
-        total = (daysSum + personsSum) * 4000;
+        if (personsSum == 0 || daysSum == 0){
+            total = 0;
+        } else{
+            total = (daysSum + personsSum) * 4000;
+        }
+        
         if (restDays.value == '') {
             totalValue.innerHTML = 0;
         } else {
             let a = total;
-            let ans = a * this.options[this.selectedIndex].value;
+            let ans = a * place.options[place.selectedIndex].value;
             animate(ans);
             // totalValue.innerHTML = total;
         }
@@ -42,7 +47,11 @@ function calc() {
             this.value = '';
         }
         daysSum = +this.value;
-        total = (daysSum + personsSum) * 4000;
+        if (personsSum == 0 || daysSum == 0){
+            total = 0;
+        } else{
+            total = (daysSum + personsSum) * 4000;
+        }
         if (persons.value == '') {
             totalValue.innerHTML = 0;
         } else {
